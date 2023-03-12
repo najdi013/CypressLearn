@@ -6,13 +6,25 @@ describe("User Journey", () => {
         cy.getByData("next-lesson-button").click()
         cy.location("pathname").should(
             "eq",
-            "/testing-your-first-application"
+            "/testing-your-first-application/app-install-and-overview"
         )
+
         cy.getByData("challenge-answer-0").click()
         cy.getByData("next-lesson-button").should("exist").click()
         cy.location("pathname").should(
             "eq",
             "/testing-your-first-application/installing-cypress-and-writing-our-first-test"
         )
+
+        cy.getByData("challenge-answer-0").click()
+        cy.getByData("next-lesson-button").should("exist").click()
+        cy.location("pathname").should(
+            "eq",
+            "/testing-your-first-application/setting-up-data-before-each-test"
+        )
+        cy.getByData("challenge-answer-0").click()
+        cy.getByData("next-lesson-button").should("exist").click()
+
+        cy.location("pathname").should("eq", "/")
     })
 })
